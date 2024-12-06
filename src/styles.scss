@@ -1,0 +1,22 @@
+//---------- Colors Variables ----------//
+$bg_color: #f4f0ec;
+
+
+//---------- General styling ----------//
+body {
+    background-color: $bg_color;
+}
+
+h2 {
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+button:disabled {
+    background-color: #cccccc;
+}
