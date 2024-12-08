@@ -1,5 +1,7 @@
-.login-page{
-  background-image:url("../assets/img/shopping.png");
+@import '../assets/styling/variables';
+
+.login-page {
+  background-image: url("../assets/img/login.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -7,52 +9,67 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: white;
-}
-.login-container {
+  padding-left: 15vw;
+  color: $secondary-color;
+
+  .login-container {
     max-width: 400px;
     padding: 20px;
-   // border: 1px solid #6d6a6a;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
     font-family: Arial, sans-serif;
-    background-color: rgba(43, 38, 38, 0.5);
-  }
-  
-  
-  
-  form div {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
- 
-  button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
 
-  input {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid white;
+    h1 {
+      color: $primary-color;
+      text-align: center;
+    }
+
+    form {
+      div {
+        margin-bottom: 15px;
+
+        label {
+          display: block;
+          margin-bottom: 5px;
+        }
+
+        input {
+          width: 100%;
+          padding: 8px;
+          box-sizing: border-box;
+          background: transparent;
+          border: none;
+          border-bottom: 1px solid $secondary-color;
+          //border-radius: 5px;
+          outline: none;
+          transition: border-color 0.3s ease;
+
+          //box-shadow: 0 0 5px rgba(123, 201, 192, 0.5);
+          &:focus {
+            border-color: $secondary-color;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(123, 201, 192, 0.5);
+            //box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+          }
+
+          &::placeholder {
+            color: $grey;
+            font-size: 12px;
+            font-style: italic;
+          }
+        }
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: $primary-color;
+        color: $white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: large;
+        font-weight: bold;
+      }
+    }
+  }
 }
-input::placeholder {
-  color: lightgray; 
-  font-size: 14px;
-  font-style: italic;
-}
-  
-  

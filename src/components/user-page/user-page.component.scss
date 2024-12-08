@@ -1,0 +1,39 @@
+@import '../../assets/styling/variables';
+
+.card-img-top {
+    height: 50vh;
+    width: 20vw;
+}
+
+.card-title {
+    color: $primary-color;
+}
+
+.rating {
+    display: flex;
+    gap: 5px;
+    color: $star;
+    /* Star color */
+}
+
+.rating i {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.clamp-text {
+    display: -webkit-box;
+    /* Required for line-clamp */
+    -webkit-line-clamp: 5;
+    /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    /* Required for line-clamp */
+    overflow: hidden;
+    /* Hide overflowing text */
+    text-overflow: ellipsis;
+    /* Add ellipsis */
+}
+
+h3{
+    color: $primary-color;
+}

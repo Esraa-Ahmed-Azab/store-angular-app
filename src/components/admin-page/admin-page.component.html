@@ -1,0 +1,67 @@
+<nav class="navbar">
+  <div class="navbar-container pb-3 me-3 col-md-12">
+    <a class="navbar-brand" href="#">
+      <img src="assets/img/logo.png" alt="logo">
+      SHOPNGO
+    </a>
+    <button class="menu-toggle">
+      <span class="material-icons">menu</span>
+    </button>
+    <ul class="navbar-links pe-5">
+      <li><a href="#" class="nav-link mx-3">Home</a></li>
+      <li><a href="#" class="nav-link mx-3">Products</a></li>
+      <li><i class="fa-solid fa-user"></i></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <h3>Products</h3>
+  <div class="crud-actions d-flex justify-content-end">
+    <button class="btn mx-2" (click)="openModal()">
+      <i class="fa-solid fa-plus"></i> Add
+    </button>
+    <button class="btn mx-2">
+      <i class="fa-solid fa-edit"></i> Edit
+    </button>
+    <button class="btn mx-2">
+      <i class="fa-solid fa-trash"></i> Delete
+    </button>
+  </div>
+  <div class="table-container">
+    <table class="modern-table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of productsList | slice: (currentPage - 1) * itemsPerPage : currentPage * itemsPerPage">
+          <td>{{ row?.title }}</td>
+          <td>{{ row?.category }}</td>
+          <td>{{ row?.description }}</td>
+          <td>{{ row?.price }}</td>
+          <td><button class="btn mx-2" (click)="updateProduct(row)">
+              <i class="fa-solid fa-edit"></i>
+            </button></td>
+          <td><button class="btn mx-2" (click)="deleteProduct(row.id)">
+              <i class="fa-solid fa-trash"></i>
+            </button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row d-flex justify-content-center">
+  <pagination class="w-25" [(ngModel)]="currentPage" [totalItems]="productsList.length" [itemsPerPage]="itemsPerPage"
+    [maxSize]="5" [boundaryLinks]="true">
+  </pagination>
+</div>
+
+<app-add-edit-product *ngIf="isModalOpen" [title]="modalTitle" [editMode]="editMode" [selectedProduct]="selectedProduct"
+  (closeModal)="closeModal()"></app-add-edit-product>

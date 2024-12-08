@@ -1,0 +1,44 @@
+<div class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ title }}</h5>
+          <button type="button" class="btn-close" (click)="close()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form [formGroup]="productsForm">
+            <div>
+              <label for="title">Title</label>
+              <input placeholder="Please Enter Title" class="form-control" id="title" type="text" formControlName="title" />
+            </div>
+            <div>
+              <label for="category">Category</label>
+              <input placeholder="Please Enter Category" class="form-control" id="category" type="text" formControlName="category" />
+            </div>
+            <div>
+              <label for="Price">Price</label>
+              <input placeholder="Please Enter Price" class="form-control" id="price" type="number" formControlName="price" />
+            </div>
+            <div>
+              <label for="description">Description</label>
+              <textarea placeholder="Please Enter Description" class="form-control" id="description" formControlName="description"></textarea>
+            </div>
+            <div>
+              <label for="image">Image</label>
+              <input
+              type="file"
+              id="photo"
+              class="form-control"
+              (change)="onFileSelected($event)"
+              accept="image/*"
+            />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn" (click)="editMode ? updateProduct() :addProduct()">Confirm</button>
+          <button type="button" class="btn btn-secondary" (click)="close()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
